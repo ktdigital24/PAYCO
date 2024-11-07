@@ -31,6 +31,7 @@ def main_menu():
     print(Fore.CYAN + "│" + Fore.GREEN + " 2. Reset" + " " * 40 + "")
     print(Fore.CYAN + "│" + Fore.GREEN + " 3. Access email" + " " * 10 + "")
     print(Fore.CYAN + "│" + Fore.GREEN + " 4. Access admin" + " " * 0 + "")
+    print(Fore.CYAN + "│" + Fore.GREEN + " 5. InstAddr" + " " * 20 + "")  # Menu baru
     print(Fore.CYAN + "│" + Fore.RED + " 0. Keluar" + " " * 0 + "")
     display_menu_border()
     print(Fore.CYAN + "│" + " " * 48 + "│")
@@ -88,6 +89,9 @@ def open_script(choice):
             print(Fore.RED + "Anda bukanlah admin! Beli bot ini untuk mengakses penuh.")
             return
         os.system("python admin.py")
+    elif choice == '5':  # InstAddr menu baru
+        print(Fore.CYAN + "Membuka perintah untuk InstAddr...")
+        os.system("python akun.py")  # Menjalankan skrip Python tertentu
     elif choice == '0':
         print(Fore.YELLOW + "Keluar dari program.")
 
@@ -107,7 +111,7 @@ def main():
         main_menu()
         choice = input(Fore.CYAN + "Masukkan pilihan Anda: ")
         
-        if choice in {'0', '1', '2', '3', '4'}:
+        if choice in {'0', '1', '2', '3', '4', '5'}:  # Tambah pilihan '5'
             if choice == '0':
                 print(Fore.YELLOW + "Keluar dari program.")
                 break
@@ -115,7 +119,7 @@ def main():
             if not return_to_menu():
                 break
         else:
-            print(Fore.RED + "Kesalahan: Masukkan pilihan yang benar antara 0 hingga 4.")
+            print(Fore.RED + "Kesalahan: Masukkan pilihan yang benar antara 0 hingga 5.")
             if not return_to_menu():
                 break
 
